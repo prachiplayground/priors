@@ -15,6 +15,7 @@ One file per major decision: what was decided, the options, why, and what would 
 | 0009 | 2026-11-11 | [Name the repository `priors`](0009-repo-name-priors.md) |
 | 0010 | 2026-11-11 | [Differentiate on decision-level structure and evals, not on being a library](0010-differentiate-on-decision-structure-and-evals.md) |
 | 0011 | 2026-11-11 | [Position priors as co-think and co-write, with a Think step before the PRD](0011-co-think-and-co-write.md) |
+| 0012 | 2026-11-11 | [Position priors as a research proof of concept validated by a user study](0012-research-poc-validated-by-user-study.md) |
 
 ## Template
 

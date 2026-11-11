@@ -1,0 +1,64 @@
+# Interview guide
+
+60 minutes. Recorded only after consent is confirmed on the recording.
+
+## Before the session
+
+- [ ] Signed consent form received; publishing opt-ins noted
+- [ ] Participant chose task A (own decision) or B (prepared scenario)
+- [ ] Prototype open and tested; screen recording ready
+- [ ] Blank framing template ready (below)
+
+## 0. Opening (2 min)
+
+"Thanks for doing this. I'm testing whether looking at how other companies made similar product decisions actually helps PMs, or whether it's just interesting reading. There are no right answers, and you can't do this wrong. Honest criticism is the most useful thing you can give me. Please think out loud as you go. Before we start: are you still OK with this being recorded?"
+
+## 1. Warm-up (10 min)
+
+1. Think of the last product decision you made that felt genuinely hard or unfamiliar. What was it, roughly?
+2. Before deciding, where did you look for input? (People, search, newsletters, AI tools, internal docs?)
+3. Roughly how much time went into that research?
+4. Did anyone in review ask "has anyone done this before?" or "what could go wrong?" How did you answer?
+5. Looking back, what do you wish you'd known earlier? Did anything need reworking later?
+
+## 2. Baseline (15 min)
+
+"Using whatever you'd normally use (search, an AI assistant, notes), frame this decision. Think out loud."
+
+At the end, they fill in the **framing template**:
+- The problem, in one or two sentences
+- What we should optimize for, and what we must not break
+- The options you'd consider
+- The biggest risks
+- Confidence in this framing (1–5)
+
+Note the elapsed time.
+
+## 3. With priors (20 min)
+
+"Now revisit the same decision using priors. It shows how comparable teams handled similar problems. It won't tell you what to do. Keep thinking out loud."
+
+Observe, don't help. Note:
+- Which precedents they open, skip or question
+- Moments of surprise ("oh, I hadn't thought of that")
+- Moments of distrust ("is this real?", "that's not comparable")
+- Anything they look for and can't find
+
+At the end, they update the **framing template** (a fresh copy) and rate confidence again. Note the elapsed time.
+
+## 4. Debrief (15 min)
+
+1. What, if anything, changed in your framing? Why?
+2. Which precedent was most useful? Which was least useful?
+3. Was there anything you didn't trust? What would have made it trustworthy?
+4. What did you look for that wasn't there?
+5. How did this compare with how you normally research a decision?
+6. Usefulness, 1–5. Trust in the evidence, 1–5.
+7. If this existed tomorrow, when would you actually use it, if ever?
+
+## After the session
+
+- [ ] Stop recording; save it to private storage (never to this repo)
+- [ ] Within 24 hours, write notes: framing change (no change / reworded / meaningfully improved), alternatives and risks before and after, times, ratings, top quotes
+- [ ] Check every citation priors showed: accurate? relevant?
+- [ ] Add anonymized notes to `rounds/round-N.md`

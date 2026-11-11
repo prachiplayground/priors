@@ -12,9 +12,27 @@ It's like working alongside product teams from across big tech without them bein
 
 The name comes from statistics: a *prior* is what you know before you decide.
 
+## Why this exists
+
+I collected a corpus of real product decisions published by big tech companies: engineering blogs, papers and talks on how teams at Netflix, Uber, Airbnb, Spotify and others decided what to build. Reading it, I kept noticing the same thing: **this is exactly the knowledge a PM needs at the moment of a hard decision, and it's almost unusable at that moment.** It's scattered across hundreds of posts, written for engineers, and finding the part that matters to *your* problem takes hours. So most PMs skip it and decide on instinct, or ask a general AI assistant that gives confident, unsourced answers.
+
+### The user story
+
+> *As a PM facing a product decision I haven't made before, I want to see how comparable teams handled the same problem (what they tried, what it cost them, what failed) so that I can make and defend a better decision before my team commits time to it.*
+
+- **Primary user:** a PM at a growing company about to write a PRD for something new to them: a first pricing change, a first recommendation feed, a first marketplace incentive.
+- **Stakeholders:** the engineering lead and leadership who review that PRD, the people who ask "has anyone done this before? what could go wrong?"
+- **Cost today (hypothesis, measured in the study):** hours of scattered research per PRD, or skipped research that resurfaces later as rework.
+
+### The research question
+
+**Does sparring with real, structured case studies actually help PMs make better product decisions, or is it just interesting reading?**
+
+priors is a proof of concept built to answer that question: the smallest queryable system that turns the corpus into structured decisions a PM can think with. It's being tested in a recorded user study with PMs, run in rounds, with the system improved between rounds based on what the sessions show. See the [study protocol](docs/study/).
+
 ## Status
 
-🚧 **Pilot phase.** The schema is defined and a 30-source pilot is being extracted to test it before scaling to 300–500 sources. Progress and reasoning are tracked in the open: see the [roadmap](ROADMAP.md) and the [decision log](docs/decisions/).
+🧪 **Proof of concept + user study.** The schema is defined and the corpus is collected. Next: hand-structure 10–15 decisions in a first focus area (personalization and experimentation), run them through a prototype, and test with PMs before investing in automated extraction or scale. Progress and reasoning are tracked in the open: see the [roadmap](ROADMAP.md) and the [decision log](docs/decisions/).
 
 ## How it works
 
@@ -91,6 +109,7 @@ docs/
   decisions/   one file per major decision (options, reasoning, revisit triggers)
   schema.md    category buckets, core fields, category-specific fields
   prd/         priors' own PRD, co-written using priors
+  study/       user study protocol, interview guide, consent form, findings per round
 schema/        JSON Schemas for source and decision records
 pipeline/      collect → fetch → classify → extract → link
 evals/         extraction, retrieval, and "evidence, not decisions" evals

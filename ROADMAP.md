@@ -1,27 +1,43 @@
 # Roadmap
 
-Eight phases take priors from scaffold to launch, roughly 12 weeks at 8–10 hours a week. Each phase ends at a gate that must pass before the next begins, and each leaves a public artifact. Decisions made along the way are logged in [docs/decisions](docs/decisions/).
+priors is a research proof of concept. The roadmap is built around one question:
 
-| Phase | Gate to pass | Public artifact | Status |
-| --- | --- | --- | --- |
-| 0. Setup | Manifest complete; all sources fetched locally | Repo, schema, decision log, fetch script | 🟡 In progress |
-| 1. Gold set | 5 sources hand-labeled into decision records; schema fits them | Gold set + labeling guide | ⚪ Not started |
-| 2. Extraction v1 | ≥ 90% core-field accuracy against the gold set | Extraction eval report | ⚪ Not started |
-| 3. Dataset v0.1 | 30 sources extracted and reviewed | Hugging Face dataset + datasheet | ⚪ Not started |
-| 4. Co-writer prototype | Dogfood PRD written; "evidence, not decisions" pass rate measured | priors' own PRD + rubric results | ⚪ Not started |
-| 5. Discovery (alongside 2–4) | 8–10 PM interviews synthesized | Discovery write-up | ⚪ Not started |
-| 6. Scale to v1.0 | 300+ sources, ≥ 20 decisions per bucket, accuracy holds | Dataset v1.0 + retrieval eval | ⚪ Not started |
-| 7. App + MCP server | A stranger can use it end to end | Live explorer, co-writer, structured-query MCP server | ⚪ Not started |
-| 8. Launch and learn | Launched with first usage metrics | Case-study write-up | ⚪ Not started |
+> **Does sparring with real, structured case studies actually help PMs make better product decisions?**
+
+The plan is to answer it with the smallest working system first, and invest in automation and scale only if the answer is yes. Each phase ends at a gate and leaves a public artifact. Decisions are logged in [docs/decisions](docs/decisions/); the study design is in [docs/study](docs/study/).
+
+| Phase | Weeks | Gate to pass | Public artifact | Status |
+| --- | --- | --- | --- | --- |
+| 0. Setup | 0 | Corpus collected, schema drafted, repo public | Repo, schema, decision log, fetch script | ✅ Done |
+| 1. Build the POC | 1 | 10–15 decisions hand-structured in the focus area; prototype runs end to end | Curated decision set + prototype | 🟡 Next |
+| 2. Study round 1 | 2 | 3–4 PM sessions recorded and analyzed against the baseline | Round 1 findings | ⚪ |
+| 3. Improve | 3 | Changes made for each top finding, each logged with its reason | Changelog: round 1 → round 2 | ⚪ |
+| 4. Study round 2 | 4 | 3–4 new PM sessions; measures compared with round 1 | Round 2 findings + before/after | ⚪ |
+| 5. Decide | 5 | Clear go / pivot / stop on scaling, based on study evidence | Decision log entry + case-study draft | ⚪ |
+| 6. Scale (if go) | 6–9 | Automated extraction ≥ 90% accurate vs. the curated set; more areas added | Dataset on Hugging Face + extraction eval | ⚪ |
+| 7. App + MCP server (if go) | 9–11 | A stranger can use it end to end | Live explorer, co-thinker, structured-query MCP server | ⚪ |
+| 8. Publish the case study | 12 | Write-up with recorded evidence and the improvement loop | Case study | ⚪ |
 
 ## Why this order
 
-- **The gold set comes before automation.** Hand-labeled records are the answer key every eval is scored against, and labeling them is how schema problems surface early.
-- **The co-writer is tested in a Claude Project before any app exists.** It's the cheapest test of the core idea.
-- **Discovery runs alongside the build,** so what PMs say can still change how the dataset scales.
-- **Scale comes after quality.** Volume is easy to add and hard to clean up.
+- **Value before scale.** Hand-structured decisions are enough to test whether precedent helps. Automated extraction only matters once the answer is yes.
+- **The curated set does double duty.** The 10–15 hand-written decision records are both the POC's knowledge base and the gold set that automated extraction will later be scored against.
+- **Rounds make the improvement loop real.** Changes between study rounds are documented with before/after measures, so the system loops in the README are backed by evidence, not just a diagram.
+- **A negative result is still a result.** If PMs don't benefit, that finding, and why, is published too.
 
-## Running the pipeline
+## Measures
+
+Three layers, from system to user:
+
+| Layer | What it answers | Example measures |
+| --- | --- | --- |
+| System quality | Does the machine work? | Citation accuracy, relevant-precedent rate, unsupported-claim rate |
+| Product behavior | Does it change how PMs think? | Share of sessions where the PM revises their framing, alternatives considered, risks identified |
+| User value | Is it better than what they do today? | Time to a confident framing vs. baseline, perceived usefulness and trust, decision quality vs. baseline (rubric) |
+
+**North star for the study:** the share of sessions that end in an evidence-supported improvement to the PM's initial framing.
+
+## Running the pipeline (phase 6)
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
