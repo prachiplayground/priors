@@ -1,4 +1,4 @@
-# priors
+# Priors
 
 **Co-write PRDs grounded in real product decisions.**
 
