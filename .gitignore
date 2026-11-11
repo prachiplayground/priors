@@ -1,0 +1,15 @@
+# Private source texts: used for extraction only, never published
+data/raw/
+data/transcripts/
+
+# Secrets
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prachiplayground/priors/schema/source_record.schema.json",
+  "title": "Source record",
+  "description": "One article, paper, talk, podcast or book chapter. Source text itself is never stored here.",
+  "type": "object",
+  "required": ["source_id", "title", "url", "source_type", "company", "source_perspective", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "source_id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "source_type": { "enum": ["blog", "paper", "talk", "podcast", "book"] },
+    "company": { "type": "string" },
+    "year": { "type": ["integer", "null"], "minimum": 1990 },
+    "authors": { "type": "array", "items": { "type": "string" } },
+    "source_perspective": { "enum": ["company_self_report", "independent"] },
+    "status": { "enum": ["found", "fetched", "extracted", "reviewed", "published"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}
