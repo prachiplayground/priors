@@ -29,7 +29,25 @@ Product case studies from engineering blogs, papers, talks and podcasts, structu
 - **Source records:** one per article, paper or talk (identity, type, whether it's a company self-report or independent).
 - **Decision records:** one per distinct product decision inside a source (problem, objective and guardrail metrics, the key tradeoff, results, what failed, ethics considerations, lineage), every field linked to the evidence it came from.
 
-Records are classified into 13 category buckets, from Personalization & Recommendations and Pricing & Monetization to Responsible AI, Ethics & Governance and Platform & Infrastructure Decisions. See [docs/schema.md](docs/schema.md).
+Each decision is classified into one primary bucket (and up to two secondary ones):
+
+| Bucket | Covers |
+| --- | --- |
+| Personalization & Recommendations | Feeds, homepages, "for you" surfaces, user modeling |
+| Search & Discovery | Query understanding, search ranking, browse and navigation |
+| Pricing & Monetization | Dynamic pricing, plans and tiers, discounts, paywalls |
+| Ads | Ad ranking, auctions, advertiser tools, ad load |
+| Marketplace Design | Matching, supply/demand balance, two-sided incentives |
+| Growth & Acquisition | Funnels, referrals, viral loops, onboarding conversion |
+| Engagement & Retention | Notifications, habit loops, churn reduction |
+| Experimentation & Metrics | A/B platforms, metric design, guardrails, causal inference |
+| Trust, Safety & Integrity | Protecting users from bad actors: fraud, spam, moderation |
+| Responsible AI, Ethics & Governance | Effects of a company's own systems: fairness, privacy, transparency, wellbeing, compliance |
+| UX & Product Design | Interface changes, information architecture, accessibility |
+| AI & LLM Features | Assistants, generative features, evals, agentic workflows |
+| Platform & Infrastructure Decisions | Build vs. buy, migrations, consolidation, tech debt |
+
+Every bucket adds its own fields on top of the core schema (e.g. `signal_freshness` for personalization, `elasticity_tested` for pricing). Full field definitions: [docs/schema.md](docs/schema.md).
 
 ## The system
 
