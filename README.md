@@ -1,10 +1,14 @@
 # Priors
 
-**Co-write PRDs grounded in real product decisions.**
+**A room full of product precedent. You run the meeting.**
 
-`priors` is a PRD co-writing assistant backed by a structured, sourced dataset of product decisions from big tech companies. You describe what you're building, for whom and at what kind of company. It finds analogous decisions, proposes a PRD structure focused on your problem, and challenges each section with cited evidence.
+*Co-think and co-write PRDs with precedent from the best product teams.*
 
-> **Design principle: evidence, not decisions.** priors never tells you what to do. It shows what comparable companies did, what they optimized for, what they gave up and where the evidence is thin. You write; you decide.
+`priors` is a thinking and writing partner for product managers, backed by a structured, sourced dataset of product decisions that big tech companies have published. You describe what you're building, for whom and at what kind of company. priors brings what comparable teams did (how they framed the problem, which alternatives they weighed, what they gave up) into the room, helps you think it through, and then co-writes the PRD with you, challenging each section with cited evidence.
+
+It's like working alongside product teams from across big tech without them being in the same room, with one honest caveat: what's in the room is their *published* decisions, not the people. They can't answer follow-up questions, and companies mostly publish what worked. priors says so whenever the evidence is thin.
+
+> **Design principle: evidence, not decisions.** priors never tells you what to do. It shows what comparable companies did, what they optimized for, what they gave up and where the evidence is thin. You think; you write; you decide.
 
 The name comes from statistics: a *prior* is what you know before you decide.
 
@@ -14,13 +18,14 @@ The name comes from statistics: a *prior* is what you know before you decide.
 
 ## How it works
 
-A co-writing session has five steps:
+A session has six steps. Most AI PRD tools start at step 4; priors spends its effort on the thinking before it.
 
 1. **Intake:** a short interview about the product, users, company stage and scale, business model, region and constraints.
 2. **Match:** analogous decisions found by the *shape* of the problem (e.g. two-sided, supply-constrained, local), not just by industry.
-3. **Structure:** core PRD sections plus sections specific to the category, each seeded with questions from where precedents struggled.
-4. **Co-write:** you draft; priors offers precedents, counter-examples and missing considerations, all cited.
-5. **Review:** a critique of the full draft against precedents, flagging gaps, unsupported assumptions and missing metrics.
+3. **Think:** before any document exists, explore how comparable teams framed similar problems, which alternatives they considered, what they traded off and what failed. priors pushes back on your framing with counter-examples; you decide what to carry forward.
+4. **Structure:** core PRD sections plus sections specific to the category, each seeded with questions from where precedents struggled.
+5. **Co-write:** you draft; priors offers precedents, counter-examples and missing considerations, all cited.
+6. **Review:** a critique of the full draft against precedents, flagging gaps, unsupported assumptions and missing metrics.
 
 ## The dataset
 
@@ -113,6 +118,8 @@ Good collections of case studies already exist, and priors builds on what they'v
 ## Content and copyright
 
 priors is an index, not an archive. It publishes structured metadata, original summaries, extracted facts and links back to every source. It never republishes source text, and paywalled material is excluded. Source texts used for extraction stay private and out of this repository.
+
+priors is an independent project and is not affiliated with, endorsed by or sponsored by any company whose published work it cites. Company names are used only to identify the sources of those publications.
 
 ## License
 
