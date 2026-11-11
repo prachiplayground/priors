@@ -10,7 +10,7 @@ The name comes from statistics: a *prior* is what you know before you decide.
 
 ## Status
 
-🚧 **Pilot phase.** The schema is defined and a 30-source pilot is being extracted to test it before scaling to 300–500 sources. Progress and reasoning are tracked in the open; see the [decision log](docs/decisions/).
+🚧 **Pilot phase.** The schema is defined and a 30-source pilot is being extracted to test it before scaling to 300–500 sources. Progress and reasoning are tracked in the open: see the [roadmap](ROADMAP.md) and the [decision log](docs/decisions/).
 
 ## How it works
 

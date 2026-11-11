@@ -9,7 +9,8 @@
   "properties": {
     "source_id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
     "title": { "type": "string" },
-    "url": { "type": "string", "format": "uri" },
+    "url": { "type": "string", "format": "uri", "description": "Canonical URL, used for citation." },
+    "fetch_url": { "type": ["string", "null"], "description": "Optional alternate location to fetch text from (e.g. a free PDF copy). Never cited." },
     "source_type": { "enum": ["blog", "paper", "talk", "podcast", "book"] },
     "company": { "type": "string" },
     "year": { "type": ["integer", "null"], "minimum": 1990 },
