@@ -77,6 +77,21 @@ data/
 app/           explorer and co-writer (later)
 ```
 
+## Related work
+
+Good collections of case studies already exist, and priors builds on what they've shown. The difference is what you can do with them: existing tools help you **find articles about** product decisions; priors lets you **reason across the decisions themselves**.
+
+| Project | What it is | How priors differs |
+| --- | --- | --- |
+| [Product Case Studies](https://github.com/aaronbatchelder/product-management-case-studies) | Open-source library of ~250 PM case studies in 19 categories, with an MCP server for keyword search | One record per article (title, link, tags, summary) vs. structured decision records with metrics, results, tradeoffs and evidence pointers |
+| [Evidently AI ML system design](https://www.evidentlyai.com/ml-system-design) | 650+ links to ML and LLM system case studies, filterable by industry and use case | Engineering focus (how systems are built) vs. product focus (what was decided, for whom, and why) |
+| [ZenML LLMOps Database](https://huggingface.co/datasets/zenml/llmops-database) | ~2,000 LLM-in-production case studies with LLM-written summaries, on Hugging Face | Same copyright approach (summaries plus links); priors adds a decision-level schema across 13 product categories |
+| [eugeneyan/applied-ml](https://github.com/eugeneyan/applied-ml) | Curated list of applied-ML papers and blog posts by topic | Used as a seed list; priors structures what those sources contain |
+| AI PRD writers (e.g. ChatPRD) | Generate and critique PRDs from prompts; newer tools ground them in a team's own customer data | priors grounds PRDs in *other companies'* sourced precedent, and never prescribes the decision |
+| Expert-archive chatbots (e.g. Lennybot) | Chat over one author's newsletter and podcast | Many companies' decisions, structured and cross-comparable, rather than one person's advice |
+
+**Search vs. query.** Keyword search finds documents that mention your words. priors' structured fields support questions *across* decisions, e.g. "which pricing decisions in two-sided marketplaces tested elasticity, and what did they find?" They also support matching by problem shape (two-sided, supply-constrained, local) rather than by wording.
+
 ## Content and copyright
 
 priors is an index, not an archive. It publishes structured metadata, original summaries, extracted facts and links back to every source. It never republishes source text, and paywalled material is excluded. Source texts used for extraction stay private and out of this repository.
