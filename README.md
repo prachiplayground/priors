@@ -31,15 +31,35 @@ Product case studies from engineering blogs, papers, talks and podcasts, structu
 
 Records are classified into 13 category buckets, from Personalization & Recommendations and Pricing & Monetization to Responsible AI, Ethics & Governance and Platform & Infrastructure Decisions. See [docs/schema.md](docs/schema.md).
 
-## The system loop
+## The system
 
-```
-sessions ──▶ gaps in precedent ──▶ new sources ──▶ extraction ──▶ evals ──▶ better dataset
-   ▲                                                                            │
-   └────────────────────────────────────────────────────────────────────────────┘
+priors is three interacting loops, not a pipeline. Evals act as gates: nothing enters the dataset or reaches a user without passing one.
+
+```mermaid
+flowchart TD
+    seeds([Seed lists + RSS feeds]) --> manifest[Source manifest]
+    manifest --> extract[Extraction]
+    extract --> gate{Extraction evals<br/>+ human review}
+    gate -- pass --> data[(Dataset)]
+    gate -- fail --> fixes[Schema + prompt fixes]
+    fixes --> extract
+    data --> match[Retrieval + matching]
+    match --> guard{Evidence-not-decisions<br/>eval}
+    guard --> session[Co-writing sessions]
+    session -- thin precedent found --> gaps[Gaps]
+    gaps -- targeted sourcing --> manifest
+    session -- feedback on cited precedents --> match
+    data -. volume grows .-> load[Review load]
+    load -. caps throughput .-> gate
 ```
 
-Each stage is measured: extraction accuracy per field, retrieval relevance for matching, and an LLM-judge rubric that scores whether the assistant stays on the right side of "evidence, not decisions."
+| Loop | Type | How it works | Main risk |
+| --- | --- | --- | --- |
+| **R1: Coverage** | Reinforcing | Sessions expose questions with thin precedent; those gaps drive targeted sourcing, which makes the next session better. | Chasing gaps the dataset can't credibly fill |
+| **B1: Quality** | Balancing | Failed extraction evals route back to schema and prompt fixes, not into the dataset. Accuracy is held above target instead of drifting as volume grows. | Fixes overfit to the pilot set |
+| **B2: Capacity** | Balancing | More data means more review load, which caps how fast sources can be admitted. | Growth stalls, or review gets skipped. Mitigated with confidence-based sampling: low-confidence records get human review first. |
+
+What gets measured at each gate: field-level extraction accuracy, retrieval relevance for matched precedents, and an LLM-judge rubric scoring whether the assistant cites evidence without prescribing decisions.
 
 ## Repository layout
 
