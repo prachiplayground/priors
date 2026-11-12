@@ -16,8 +16,8 @@
 - **H2 (breadth):** With priors, PMs identify more alternatives and risks.
 - **H3 (time):** within the same 20 minutes, PMs reach a framing they're more confident in with priors than with their usual approach.
 - **H4 (trust):** PMs trust cited precedent more than uncited AI answers, and say so unprompted.
-- **H6 (LLM value):** PMs find the conversation more useful than a plain, filterable list of the same decision records. If not, the LLM isn't earning its place (see [Architecture: rules vs. LLM](../../README.md#architecture-rules-vs-llm)).
 - **H5 (mode):** PMs reach for priors mostly while thinking (looking things up and sparring), not only when writing documents. This tests [decision 0013](../decisions/0013-sparring-partner-not-prd-collaborator.md).
+- **H6 (LLM value):** PMs find the conversation more useful than a plain, filterable list of the same decision records. If not, the LLM isn't earning its place (see [Architecture: rules vs. LLM](../../README.md#architecture-rules-vs-llm)).
 
 Any of these can fail. Failed hypotheses are reported as findings.
 
