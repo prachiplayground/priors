@@ -2,14 +2,14 @@
 
 priors is a research proof of concept. The roadmap is built around one question:
 
-> **Does sparring with real, structured case studies actually help PMs make better product decisions?**
+> **Does sparring with real product precedent help PMs think through decisions, or is it just interesting reading?**
 
 The plan is to answer it with the smallest working system first, and invest in automation and scale only if the answer is yes. Each phase ends at a gate and leaves a public artifact. Decisions are logged in [docs/decisions](docs/decisions/); the study design is in [docs/study](docs/study/).
 
 | Phase | Weeks | Gate to pass | Public artifact | Status |
 | --- | --- | --- | --- | --- |
 | 0. Setup | 0 | Corpus collected, schema drafted, repo public | Repo, schema, decision log, fetch script | ✅ Done |
-| 1. Build the POC | 1 | 10–15 decisions hand-structured in the focus area; prototype runs end to end | Curated decision set + prototype | 🟡 Next |
+| 1. Build the POC | 1 | 10–15 decisions hand-structured; `think`, `audit` and the verifier run end to end ([design](docs/poc-design.md)) | Curated decision set + skill-shaped prototype | 🟡 Next |
 | 2. Study round 1 | 2 | 3–4 PM sessions recorded and analyzed against the baseline | Round 1 findings | ⚪ |
 | 3. Improve | 3 | Changes made for each top finding, each logged with its reason | Changelog: round 1 → round 2 | ⚪ |
 | 4. Study round 2 | 4 | 3–4 new PM sessions; measures compared with round 1 | Round 2 findings + before/after | ⚪ |

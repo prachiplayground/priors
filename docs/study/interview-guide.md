@@ -36,13 +36,14 @@ Note the elapsed time.
 
 ## 3. With priors (20 min)
 
-"Now revisit the same decision using priors. It shows how comparable teams handled similar problems. It won't tell you what to do. Keep thinking out loud."
+"Now revisit the same decision using priors. It shows how comparable teams handled similar problems. It won't tell you what to do. Use it however feels natural: ask it questions, run your plan past it, or (task C) have it check your PRD. Keep thinking out loud."
 
 Observe, don't help. Note:
 - Which precedents they open, skip or question
 - Moments of surprise ("oh, I hadn't thought of that")
 - Moments of distrust ("is this real?", "that's not comparable")
 - Anything they look for and can't find
+- Which mode they fall into: looking things up, sparring, building a case, or checking a document
 
 At the end, they update the **framing template** (a fresh copy) and rate confidence again. Note the elapsed time.
 
@@ -54,7 +55,8 @@ At the end, they update the **framing template** (a fresh copy) and rate confide
 4. What did you look for that wasn't there?
 5. How did this compare with how you normally research a decision?
 6. Usefulness, 1–5. Trust in the evidence, 1–5.
-7. If this existed tomorrow, when would you actually use it, if ever?
+7. If this existed tomorrow, when would you actually reach for it? While thinking something through, preparing for a review, writing a document, or never?
+8. Would you want to keep using it after today? (If yes, note it: unprompted pull is a key signal.)
 
 ## After the session
 

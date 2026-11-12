@@ -16,6 +16,8 @@ One file per major decision: what was decided, the options, why, and what would 
 | 0010 | 2026-11-11 | [Differentiate on decision-level structure and evals, not on being a library](0010-differentiate-on-decision-structure-and-evals.md) |
 | 0011 | 2026-11-11 | [Position priors as co-think and co-write, with a Think step before the PRD](0011-co-think-and-co-write.md) |
 | 0012 | 2026-11-11 | [Position priors as a research proof of concept validated by a user study](0012-research-poc-validated-by-user-study.md) |
+| 0013 | 2026-11-12 | [Make priors a sparring partner for decisions, with the PRD as one destination](0013-sparring-partner-not-prd-collaborator.md) |
+| 0014 | 2026-11-12 | [Build the POC skill-shaped, but don't distribute it until the study says go](0014-skill-shaped-poc-not-distributed.md) |
 
 ## Template
 

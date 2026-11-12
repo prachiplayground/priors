@@ -2,13 +2,13 @@
 
 **A room full of product precedent. You run the meeting.**
 
-*Co-think and co-write PRDs with precedent from the best product teams.*
+*A sparring partner for product decisions, backed by precedent from the best product teams.*
 
-`priors` is a thinking and writing partner for product managers, backed by a structured, sourced dataset of product decisions that big tech companies have published. You describe what you're building, for whom and at what kind of company. priors brings what comparable teams did (how they framed the problem, which alternatives they weighed, what they gave up) into the room, helps you think it through, and then co-writes the PRD with you, challenging each section with cited evidence.
+`priors` is a sparring partner for product managers, backed by a structured, sourced dataset of product decisions that big tech companies have published. Whenever you're working through a product decision (exploring it, arguing it, writing it up), you can ask priors how comparable teams handled the same problem: how they framed it, which alternatives they weighed, what they gave up and what failed. It brings that evidence into the conversation and pushes back on your thinking. The PRD is one place that thinking ends up, not the product itself.
 
 It's like working alongside product teams from across big tech without them being in the same room, with one honest caveat: what's in the room is their *published* decisions, not the people. They can't answer follow-up questions, and companies mostly publish what worked. priors says so whenever the evidence is thin.
 
-> **Design principle: evidence, not decisions.** priors never tells you what to do. It shows what comparable companies did, what they optimized for, what they gave up and where the evidence is thin. You think; you write; you decide.
+> **Design principle: evidence, not decisions.** priors never tells you what to do. It shows what comparable companies did, what they optimized for, what they gave up and where the evidence is thin. You think; you decide.
 
 The name comes from statistics: a *prior* is what you know before you decide.
 
@@ -18,15 +18,15 @@ I collected a corpus of real product decisions published by big tech companies: 
 
 ### The user story
 
-> *As a PM facing a product decision I haven't made before, I want to see how comparable teams handled the same problem (what they tried, what it cost them, what failed) so that I can make and defend a better decision before my team commits time to it.*
+> *As a PM facing a product decision I haven't made before, I want to spar with how comparable teams handled the same problem (what they tried, what it cost them, what failed) so that I can make and defend a better decision before my team commits time to it.*
 
-- **Primary user:** a PM at a growing company about to write a PRD for something new to them: a first pricing change, a first recommendation feed, a first marketplace incentive.
-- **Stakeholders:** the engineering lead and leadership who review that PRD, the people who ask "has anyone done this before? what could go wrong?"
+- **Primary user:** a PM at a growing company facing something new to them: a first pricing change, a first recommendation feed, a first marketplace incentive.
+- **Stakeholders:** the engineering lead and leadership who review the plan, the people who ask "has anyone done this before? what could go wrong?"
 - **Cost today (hypothesis, measured in the study):** hours of scattered research per PRD, or skipped research that resurfaces later as rework.
 
 ### The research question
 
-**Does sparring with real, structured case studies actually help PMs make better product decisions, or is it just interesting reading?**
+**Does sparring with real product precedent help PMs think through decisions, or is it just interesting reading?**
 
 priors is a proof of concept built to answer that question: the smallest queryable system that turns the corpus into structured decisions a PM can think with. It's being tested in a recorded user study with PMs, run in rounds, with the system improved between rounds based on what the sessions show. See the [study protocol](docs/study/).
 
@@ -36,14 +36,23 @@ priors is a proof of concept built to answer that question: the smallest queryab
 
 ## How it works
 
-A session has six steps. Most AI PRD tools start at step 4; priors spends its effort on the thinking before it.
+Reference libraries in other fields are mostly used to *look things up and think*, not to generate deliverables. When Mobbin analyzed over 300,000 real queries to its design library, none of the top 50 asked it to generate anything; people looked things up mid-work. Architects use precedent in almost every phase of design, not just one document. priors is built around the same behavior, in four modes:
 
-1. **Intake:** a short interview about the product, users, company stage and scale, business model, region and constraints.
+| Mode | The PM's question | When |
+| --- | --- | --- |
+| **Look up** | "How did Airbnb handle cold start?" | Mid-work, in seconds |
+| **Spar** | "Here's my plan. Push back." | Before committing to a direction |
+| **Persuade** | "Who else has done this, and what happened?" | Preparing for a review or stakeholder conversation |
+| **Check** | "What am I missing in this PRD?" | Before a document goes out |
+
+The first three happen in one conversation (`priors think`); the fourth is a focused verb (`priors audit prd.md`). A sparring session runs like this:
+
+1. **Intake:** a few questions about the product, users, company stage and constraints.
 2. **Match:** analogous decisions found by the *shape* of the problem (e.g. two-sided, supply-constrained, local), not just by industry.
-3. **Think:** before any document exists, explore how comparable teams framed similar problems, which alternatives they considered, what they traded off and what failed. priors pushes back on your framing with counter-examples; you decide what to carry forward.
-4. **Structure:** core PRD sections plus sections specific to the category, each seeded with questions from where precedents struggled.
-5. **Co-write:** you draft; priors offers precedents, counter-examples and missing considerations, all cited.
-6. **Review:** a critique of the full draft against precedents, flagging gaps, unsupported assumptions and missing metrics.
+3. **Spar:** how comparable teams framed similar problems, the alternatives they considered, what they traded off and what failed, all cited. priors pushes back with questions and counter-examples; you decide what to carry forward.
+4. **Brief:** a short, cited summary of what you concluded and why, ready to take into a PRD, a review or a conversation.
+
+**Every claim is verified before you see it.** A separate verifier agent, with fresh context, checks each precedent claim: does the source actually say this, is the situation genuinely comparable, and is there counter-evidence? Claims are marked *confirmed* or *needs check*; anything rejected is never shown. See [docs/poc-design.md](docs/poc-design.md).
 
 ## The dataset
 
@@ -109,6 +118,7 @@ docs/
   decisions/   one file per major decision (options, reasoning, revisit triggers)
   schema.md    category buckets, core fields, category-specific fields
   prd/         priors' own PRD, co-written using priors
+  poc-design.md how the proof of concept works (modes, verbs, verifier)
   study/       user study protocol, interview guide, consent form, findings per round
 schema/        JSON Schemas for source and decision records
 pipeline/      collect → fetch → classify → extract → link
