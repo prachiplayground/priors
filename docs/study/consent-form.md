@@ -2,11 +2,13 @@
 
 **Study:** Does sparring with real product case studies help PMs make better decisions?
 **Researcher:** Prachi Mehta (independent project; not affiliated with any company)
-**Length:** about 60 minutes, online
+**Length:** about 75 minutes, online
 
 ## What you'll do
 
-You'll describe how you usually research product decisions, frame a product decision with your usual tools, then revisit it using a prototype called priors, and share your feedback. You can use your own decision or a prepared scenario. **Please don't share confidential information about your employer.** The prepared scenario is there so you never need to.
+You'll describe how you usually research product decisions, then work through two prepared product scenarios: one with your usual tools and one with a prototype called priors, and share your feedback. **Please don't share confidential information about your employer.** The scenarios are prepared so you never need to.
+
+Your written framings will be anonymized and scored by two independent reviewers who won't know who wrote them.
 
 ## Recording
 

@@ -1,11 +1,11 @@
 # Interview guide
 
-60 minutes. Recorded only after consent is confirmed on the recording.
+75 minutes. Recorded only after consent is confirmed on the recording. Check the participant's slot in the counterbalancing table (study README) before starting: it sets which scenario and which condition come first.
 
 ## Before the session
 
 - [ ] Signed consent form received; publishing opt-ins noted
-- [ ] Participant chose task A (own decision) or B (prepared scenario)
+- [ ] Participant's order assigned from the counterbalancing table (scenario order, condition order)
 - [ ] Prototype open and tested; screen recording ready
 - [ ] Blank framing template ready (below)
 
@@ -21,39 +21,39 @@
 4. Did anyone in review ask "has anyone done this before?" or "what could go wrong?" How did you answer?
 5. Looking back, what do you wish you'd known earlier? Did anything need reworking later?
 
-## 2. Baseline (15 min)
+## 2. Task 1 (20 min)
 
-"Using whatever you'd normally use (search, an AI assistant, notes), frame this decision. Think out loud."
+Read the assigned scenario aloud. Then, depending on the condition:
 
-At the end, they fill in the **framing template**:
+- **Usual tools:** "Using whatever you'd normally use (search, an AI assistant, notes), frame this decision. Think out loud."
+- **priors:** "Use priors however feels natural: ask it questions or run your thinking past it. It shows how comparable teams handled similar problems; it won't tell you what to do. Think out loud."
+
+At 17 minutes, ask them to fill in the **framing template** in their own words (no copy-pasting citations or tool output):
 - The problem, in one or two sentences
 - What we should optimize for, and what we must not break
 - The options you'd consider
 - The biggest risks
 - Confidence in this framing (1–5)
 
-Note the elapsed time.
+Stop at 20 minutes.
 
-## 3. With priors (20 min)
+## 3. Task 2 (20 min)
 
-"Now revisit the same decision using priors. It shows how comparable teams handled similar problems. It won't tell you what to do. Use it however feels natural: ask it questions, run your plan past it, or (task C) have it check your PRD. Keep thinking out loud."
+The other scenario, with the other condition. Same instructions, same template, same 20 minutes.
 
-Observe, don't help. Note:
+During the priors task, observe without helping. Note:
 - Which precedents they open, skip or question
 - Moments of surprise ("oh, I hadn't thought of that")
 - Moments of distrust ("is this real?", "that's not comparable")
 - Anything they look for and can't find
-- Which mode they fall into: looking things up, sparring, building a case, or checking a document
-
-At the end, they update the **framing template** (a fresh copy) and rate confidence again. Note the elapsed time.
+- Which mode they fall into: looking things up, sparring, building a case
 
 ## 4. Debrief (15 min)
 
-1. What, if anything, changed in your framing? Why?
+1. How did the two tasks feel different? Which framing are you more confident in, and why?
 2. Which precedent was most useful? Which was least useful?
 3. Was there anything you didn't trust? What would have made it trustworthy?
 4. What did you look for that wasn't there?
-5. How did this compare with how you normally research a decision?
 6. Usefulness, 1–5. Trust in the evidence, 1–5.
 7. If this existed tomorrow, when would you actually reach for it? While thinking something through, preparing for a review, writing a document, or never?
 8. Would you want to keep using it after today? (If yes, note it: unprompted pull is a key signal.)
@@ -61,6 +61,7 @@ At the end, they update the **framing template** (a fresh copy) and rate confide
 ## After the session
 
 - [ ] Stop recording; save it to private storage (never to this repo)
-- [ ] Within 24 hours, write notes: framing change (no change / reworded / meaningfully improved), alternatives and risks before and after, times, ratings, top quotes
+- [ ] Within 24 hours, write notes: times, confidence ratings, mode of use, top quotes. **Don't score the framings yourself.**
+- [ ] Send both framing templates to the helper for anonymizing and stripping before blind rating
 - [ ] Check every citation priors showed: accurate? relevant?
 - [ ] Add anonymized notes to `rounds/round-N.md`
