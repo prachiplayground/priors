@@ -4,19 +4,115 @@
   "title": "Source record",
   "description": "One article, paper, talk, podcast or book chapter. Source text itself is never stored here.",
   "type": "object",
-  "required": ["source_id", "title", "url", "source_type", "company", "source_perspective", "status"],
+  "required": [
+    "source_id",
+    "title",
+    "url",
+    "source_type",
+    "company",
+    "source_perspective",
+    "status"
+  ],
   "additionalProperties": false,
   "properties": {
-    "source_id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-    "title": { "type": "string" },
-    "url": { "type": "string", "format": "uri", "description": "Canonical URL, used for citation." },
-    "fetch_url": { "type": ["string", "null"], "description": "Optional alternate location to fetch text from (e.g. a free PDF copy). Never cited." },
-    "source_type": { "enum": ["blog", "paper", "talk", "podcast", "book"] },
-    "company": { "type": "string" },
-    "year": { "type": ["integer", "null"], "minimum": 1990 },
-    "authors": { "type": "array", "items": { "type": "string" } },
-    "source_perspective": { "enum": ["company_self_report", "independent"] },
-    "status": { "enum": ["found", "fetched", "extracted", "reviewed", "published"] },
-    "notes": { "type": ["string", "null"] }
+    "source_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL, used for citation."
+    },
+    "fetch_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional alternate location to fetch text from (e.g. a free PDF copy). Never cited."
+    },
+    "source_type": {
+      "enum": [
+        "blog",
+        "paper",
+        "talk",
+        "podcast",
+        "book"
+      ]
+    },
+    "company": {
+      "type": "string"
+    },
+    "year": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1990
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_perspective": {
+      "enum": [
+        "company_self_report",
+        "independent"
+      ]
+    },
+    "status": {
+      "enum": [
+        "found",
+        "fetched",
+        "extracted",
+        "reviewed",
+        "published"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "triage_score": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Total 0-10 plus sub-scores choice/context/outcome/relevance/candor, e.g. '8 (2/2/2/1/1)'. See docs/source-triage.md."
+    },
+    "role": {
+      "enum": [
+        "decision",
+        "technique",
+        "background",
+        "excluded",
+        null
+      ],
+      "description": "Assigned after triage. Only 'decision' sources become decision records or are cited as precedent."
+    },
+    "role_guess": {
+      "enum": [
+        "decision",
+        "technique",
+        "background",
+        "excluded",
+        null
+      ],
+      "description": "Unconfirmed first-pass guess before triage."
+    },
+    "constraints_note": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Key constraints in a few words."
+    }
   }
 }

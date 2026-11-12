@@ -6,6 +6,7 @@ Machine-readable versions: [`schema/source_record.schema.json`](../schema/source
 
 ## Rules
 
+- Only sources triaged as `decision` become decision records or are cited as precedent ([source triage](source-triage.md)).
 - A field is `null` when the source doesn't state it. Never fill a field by inference.
 - `results` contains only lifts the source itself reports.
 - Every extracted field on a decision record has an evidence pointer (section or paragraph of the source), never copied text.
@@ -42,6 +43,9 @@ Each decision has one primary bucket and up to two secondary buckets.
 | `year` | int | |
 | `authors` | list | |
 | `source_perspective` | enum | `company_self_report`, `independent` |
+| `role` | enum | `decision`, `technique`, `background`, `excluded`, assigned by [source triage](source-triage.md) |
+| `triage_score` | string | total 0–10 with sub-scores, e.g. `8 (2/2/2/1/1)` |
+| `constraints_note` | string | key constraints in a few words |
 | `status` | enum | `found`, `fetched`, `extracted`, `reviewed`, `published` |
 
 ## Decision record: core fields
@@ -50,6 +54,7 @@ Each decision has one primary bucket and up to two secondary buckets.
 | --- | --- | --- |
 | Identity | `decision_id`, `source_id` | string |
 | Classification | `primary_category`, `secondary_categories` | enum, list (max 2) |
+| Classification | `decision_type` | enum: `product`, `technical_with_product_impact`, `process` (see [source triage](source-triage.md)) |
 | Context | `surface` | enum: feed, search, homepage, notifications, checkout, pricing_page, internal_tool, other |
 | Context | `business_model`, `sidedness` | enum; `one_sided` or `two_sided` |
 | Matching context | `company_stage`, `company_scale`, `industry`, `region`, `user_segment`, `constraints` | strings / lists |

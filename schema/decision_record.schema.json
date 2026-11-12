@@ -4,96 +4,276 @@
   "title": "Decision record",
   "description": "One distinct product decision found in a source. Fields are null when the source doesn't state them; never filled by inference.",
   "type": "object",
-  "required": ["decision_id", "source_id", "primary_category", "problem", "key_decision", "evidence", "review_status"],
+  "required": [
+    "decision_id",
+    "source_id",
+    "primary_category",
+    "decision_type",
+    "problem",
+    "key_decision",
+    "evidence",
+    "review_status"
+  ],
   "additionalProperties": false,
   "$defs": {
     "category": {
       "enum": [
-        "personalization", "search_discovery", "pricing_monetization", "ads", "marketplace",
-        "growth", "engagement_retention", "experimentation", "trust_safety", "responsible_ai",
-        "ux_design", "ai_llm_features", "platform_infra"
+        "personalization",
+        "search_discovery",
+        "pricing_monetization",
+        "ads",
+        "marketplace",
+        "growth",
+        "engagement_retention",
+        "experimentation",
+        "trust_safety",
+        "responsible_ai",
+        "ux_design",
+        "ai_llm_features",
+        "platform_infra"
       ]
     },
-    "nullableString": { "type": ["string", "null"] },
-    "stringList": { "type": ["array", "null"], "items": { "type": "string" } }
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stringList": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
   },
   "properties": {
-    "decision_id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-    "source_id": { "type": "string" },
-
-    "primary_category": { "$ref": "#/$defs/category" },
-    "secondary_categories": { "type": "array", "items": { "$ref": "#/$defs/category" }, "maxItems": 2 },
-
-    "surface": { "enum": ["feed", "search", "homepage", "notifications", "checkout", "pricing_page", "internal_tool", "other", null] },
-    "business_model": { "enum": ["subscription", "marketplace", "ads", "transactional", "enterprise", "other", null] },
-    "sidedness": { "enum": ["one_sided", "two_sided", null] },
-
-    "company_stage": { "$ref": "#/$defs/nullableString" },
-    "company_scale": { "$ref": "#/$defs/nullableString" },
-    "industry": { "$ref": "#/$defs/nullableString" },
-    "region": { "$ref": "#/$defs/nullableString" },
-    "user_segment": { "$ref": "#/$defs/nullableString" },
-    "constraints": { "$ref": "#/$defs/stringList" },
-
-    "problem": { "type": "string" },
-    "key_decision": { "type": "string", "description": "The tradeoff made, in 1-2 sentences." },
-    "objective_metric": { "$ref": "#/$defs/nullableString" },
-    "guardrail_metrics": { "$ref": "#/$defs/stringList" },
-    "approach": { "$ref": "#/$defs/nullableString" },
-    "techniques": { "$ref": "#/$defs/stringList" },
-
-    "assumptions": { "$ref": "#/$defs/stringList" },
-    "risks": { "$ref": "#/$defs/stringList" },
-    "dependencies": { "$ref": "#/$defs/stringList" },
-    "rollout_strategy": { "$ref": "#/$defs/nullableString" },
-
+    "decision_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "primary_category": {
+      "$ref": "#/$defs/category"
+    },
+    "secondary_categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/category"
+      },
+      "maxItems": 2
+    },
+    "decision_type": {
+      "enum": [
+        "product",
+        "technical_with_product_impact",
+        "process"
+      ],
+      "description": "What kind of decision: product, an engineering choice under constraints that changed what users get, or how the team decides/works. See docs/source-triage.md."
+    },
+    "surface": {
+      "enum": [
+        "feed",
+        "search",
+        "homepage",
+        "notifications",
+        "checkout",
+        "pricing_page",
+        "internal_tool",
+        "other",
+        null
+      ]
+    },
+    "business_model": {
+      "enum": [
+        "subscription",
+        "marketplace",
+        "ads",
+        "transactional",
+        "enterprise",
+        "other",
+        null
+      ]
+    },
+    "sidedness": {
+      "enum": [
+        "one_sided",
+        "two_sided",
+        null
+      ]
+    },
+    "company_stage": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "company_scale": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "industry": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "region": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "user_segment": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "constraints": {
+      "$ref": "#/$defs/stringList"
+    },
+    "problem": {
+      "type": "string"
+    },
+    "key_decision": {
+      "type": "string",
+      "description": "The tradeoff made, in 1-2 sentences."
+    },
+    "objective_metric": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "guardrail_metrics": {
+      "$ref": "#/$defs/stringList"
+    },
+    "approach": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "techniques": {
+      "$ref": "#/$defs/stringList"
+    },
+    "assumptions": {
+      "$ref": "#/$defs/stringList"
+    },
+    "risks": {
+      "$ref": "#/$defs/stringList"
+    },
+    "dependencies": {
+      "$ref": "#/$defs/stringList"
+    },
+    "rollout_strategy": {
+      "$ref": "#/$defs/nullableString"
+    },
     "results": {
-      "type": ["array", "null"],
+      "type": [
+        "array",
+        "null"
+      ],
       "description": "Only lifts the source itself reports.",
       "items": {
         "type": "object",
-        "required": ["metric", "method"],
+        "required": [
+          "metric",
+          "method"
+        ],
         "additionalProperties": false,
         "properties": {
-          "metric": { "type": "string" },
-          "change": { "type": ["number", "null"] },
-          "unit": { "type": ["string", "null"] },
-          "method": { "enum": ["ab_test", "interleaving", "bandit", "quasi_experiment", "holdout", "offline", "other"] }
+          "metric": {
+            "type": "string"
+          },
+          "change": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "method": {
+            "enum": [
+              "ab_test",
+              "interleaving",
+              "bandit",
+              "quasi_experiment",
+              "holdout",
+              "offline",
+              "other"
+            ]
+          }
         }
       }
     },
-
-    "what_failed": { "$ref": "#/$defs/nullableString" },
-    "lessons": { "$ref": "#/$defs/nullableString" },
-
+    "what_failed": {
+      "$ref": "#/$defs/nullableString"
+    },
+    "lessons": {
+      "$ref": "#/$defs/nullableString"
+    },
     "ethics_considerations": {
-      "type": ["array", "null"],
+      "type": [
+        "array",
+        "null"
+      ],
       "description": "Assessed for every decision. null = the source raises none.",
       "items": {
         "type": "object",
-        "required": ["concern_type", "note"],
+        "required": [
+          "concern_type",
+          "note"
+        ],
         "additionalProperties": false,
         "properties": {
-          "concern_type": { "enum": ["fairness", "privacy", "transparency", "wellbeing", "safety", "compliance", "diversity", "other"] },
-          "note": { "type": "string" }
+          "concern_type": {
+            "enum": [
+              "fairness",
+              "privacy",
+              "transparency",
+              "wellbeing",
+              "safety",
+              "compliance",
+              "diversity",
+              "other"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
         }
       }
     },
-
-    "builds_on": { "type": "array", "items": { "type": "string" } },
-    "superseded_by": { "type": "array", "items": { "type": "string" } },
-
+    "builds_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "superseded_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "category_fields": {
       "type": "object",
       "description": "Fields specific to the primary category; see docs/schema.md."
     },
-
     "evidence": {
       "type": "object",
       "description": "Field name -> pointer into the source (section/paragraph). Never copied text.",
-      "additionalProperties": { "type": "string", "maxLength": 200 }
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 200
+      }
     },
-    "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
-    "review_status": { "enum": ["auto", "spot_checked", "verified"] }
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "review_status": {
+      "enum": [
+        "auto",
+        "spot_checked",
+        "verified"
+      ]
+    }
   }
 }

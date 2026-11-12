@@ -19,6 +19,7 @@ One file per major decision: what was decided, the options, why, and what would 
 | 0013 | 2026-11-12 | [Make priors a sparring partner for decisions, with the PRD as one destination](0013-sparring-partner-not-prd-collaborator.md) |
 | 0014 | 2026-11-12 | [Build the POC skill-shaped, but don't distribute it until the study says go](0014-skill-shaped-poc-not-distributed.md) |
 | 0015 | 2026-11-12 | [Fix the study design: matched scenarios, counterbalancing, blind rating, focused recruiting](0015-counterbalanced-blind-study-design.md) |
+| 0016 | 2026-11-12 | [Triage every source before structuring it; only decision sources become precedent](0016-triage-sources-before-structuring.md) |
 
 ## Template
 

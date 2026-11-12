@@ -71,6 +71,7 @@ One known limitation: when priors comes first, ideas from it can carry over into
 | Verifier | Confirmed / needs check / rejected counts per session; time and cost per session |
 | Conversation vs. plain list | In the debrief, the PM sees the same decision records as a plain filterable list (no LLM) and says which they'd rather use, and why |
 | System quality | Every citation in the session checked: was it accurate, and was it relevant? |
+| Triage validity | Do precedents from higher-scoring sources get rated more useful in sessions? (Tests the [triage rubric](../source-triage.md).) |
 
 ### Blind rating of framings
 

@@ -75,7 +75,7 @@ priors uses plain, predictable code wherever it can, and an LLM only where the t
 
 ## The dataset
 
-Product case studies from engineering blogs, papers, talks and podcasts, structured into two linked record types:
+Product case studies from engineering blogs, papers, talks and podcasts. Not every case study is about a decision, so each source is first [triaged](docs/source-triage.md): only sources with a real choice, a reason and a consequence become precedent. Engineering write-ups and frameworks are kept as supporting context, never cited as precedent. Decision sources are structured into two linked record types:
 
 - **Source records:** one per article, paper or talk (identity, type, whether it's a company self-report or independent).
 - **Decision records:** one per distinct product decision inside a source (problem, objective and guardrail metrics, the key tradeoff, results, what failed, ethics considerations, lineage), every field linked to the evidence it came from.
@@ -121,6 +121,7 @@ docs/
   decisions/   one file per major decision (options, reasoning, revisit triggers)
   schema.md    category buckets, core fields, category-specific fields
   prd/         priors' own PRD, co-written using priors
+  source-triage.md how sources are scored and assigned a role
   poc-design.md how the proof of concept works (modes, verbs, verifier)
   study/       user study protocol, interview guide, consent form, findings per round
 schema/        JSON Schemas for source and decision records

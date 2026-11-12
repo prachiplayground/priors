@@ -9,7 +9,7 @@ The plan is to answer it with the smallest working system first, and invest in a
 | Phase | Weeks | Gate to pass | Public artifact | Status |
 | --- | --- | --- | --- | --- |
 | 0. Setup | 0 | Corpus collected, schema drafted, repo public | Repo, schema, decision log, fetch script | ✅ Done |
-| 1. Build the POC | 1 | 10–15 decisions hand-structured; `think`, `audit` and the verifier run end to end ([design](docs/poc-design.md)) | Curated decision set + skill-shaped prototype | 🟡 Next |
+| 1. Build the POC | 1 | Pilot sources [triaged](docs/source-triage.md); 10–15 decisions hand-structured from decision sources; `think`, `audit` and the verifier run end to end ([design](docs/poc-design.md)) | Curated decision set + skill-shaped prototype | 🟡 Next |
 | 2. Study round 1 | 2 | 3–4 PM sessions recorded and analyzed against the baseline | Round 1 findings | ⚪ |
 | 3. Improve | 3 | Changes made for each top finding, each logged with its reason | Changelog: round 1 → round 2 | ⚪ |
 | 4. Study round 2 | 4 | 3–4 new PM sessions; measures compared with round 1 | Round 2 findings + before/after | ⚪ |
