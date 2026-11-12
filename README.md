@@ -104,23 +104,7 @@ Every bucket adds its own fields on top of the core schema (e.g. `signal_freshne
 
 priors is three interacting loops, not a pipeline. Evals act as gates: nothing enters the dataset or reaches a user without passing one.
 
-```mermaid
-flowchart TD
-    seeds([Seed lists + RSS feeds]) --> manifest[Source manifest]
-    manifest --> extract[Extraction]
-    extract --> gate{Extraction evals<br/>+ human review}
-    gate -- pass --> data[(Dataset)]
-    gate -- fail --> fixes[Schema + prompt fixes]
-    fixes --> extract
-    data --> match[Retrieval + matching]
-    match --> guard{Evidence-not-decisions<br/>eval}
-    guard --> session[Co-writing sessions]
-    session -- thin precedent found --> gaps[Gaps]
-    gaps -- targeted sourcing --> manifest
-    session -- feedback on cited precedents --> match
-    data -. volume grows .-> load[Review load]
-    load -. caps throughput .-> gate
-```
+<p align="center"><img src="docs/assets/system-loops.svg" alt="The system as three loops: R1 Coverage (reinforcing) runs from source manifest through extraction, an extraction-evals gate, the dataset, retrieval, an evidence-not-decisions gate, PM sessions and gaps back to sourcing; B1 Quality sends failed extractions to schema and prompt fixes; B2 Capacity shows review load capping throughput at the extraction gate." width="100%"></p>
 
 | Loop | Type | How it works | Main risk |
 | --- | --- | --- | --- |

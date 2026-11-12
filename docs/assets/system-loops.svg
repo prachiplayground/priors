@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 730" width="1280" height="730" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d1a"/><stop offset="1" stop-color="#141033"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2440"/><stop offset="1" stop-color="#151a31"/>
+    </linearGradient>
+    <linearGradient id="gate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14306b"/><stop offset="1" stop-color="#0c1f4a"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c4b5fd"/></marker>
+    <marker id="aB1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#fbbf24"/></marker>
+    <marker id="aB2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2dd4bf"/></marker>
+    <marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="730" rx="28" fill="url(#bg)"/>
+  <text x="48" y="58" fill="#f8fafc" font-size="28" font-weight="700">The system: three loops</text>
+  <text x="48" y="88" fill="#94a3b8" font-size="15">One loop grows priors; two keep it honest. Evals act as gates: nothing enters the dataset or reaches a PM without passing one.</text>
+
+  <!-- R1 coverage ring -->
+  <g fill="none" stroke="url(#ring)" stroke-width="3" marker-end="url(#aR)">
+    <path d="M295,203 C325,175 335,162 363,160"/>
+    <path d="M535,160 L603,160"/>
+    <path d="M795,160 C860,160 885,175 897,196"/>
+    <path d="M992,250 C1045,275 1080,315 1080,361"/>
+    <path d="M1080,427 C1080,500 1060,545 1027,568"/>
+    <path d="M835,580 C800,600 770,606 737,608"/>
+    <path d="M565,612 C530,610 500,598 467,583"/>
+    <path d="M295,578 C150,560 130,330 196,249"/>
+  </g>
+  <text x="826" y="150" fill="#c4b5fd" font-size="12" font-weight="600">pass</text>
+  <text x="128" y="430" fill="#c4b5fd" font-size="12" font-weight="600" transform="rotate(-80 128 430)">targeted sourcing</text>
+
+  <!-- B1 quality loop -->
+  <g fill="none" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#aB1)">
+    <path d="M665,198 C655,230 640,250 628,270"/>
+    <path d="M492,300 C455,290 445,240 448,196"/>
+  </g>
+  <text x="664" y="246" fill="#fcd34d" font-size="12" font-weight="600">fail</text>
+
+  <!-- B2 capacity loop -->
+  <g fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#aB2)">
+    <path d="M935,252 C915,285 895,300 882,306"/>
+    <path d="M760,304 C745,270 740,240 742,200"/>
+  </g>
+  <text x="905" y="300" fill="#5eead4" font-size="12" font-weight="600">volume grows</text>
+  <text x="764" y="284" fill="#5eead4" font-size="12" font-weight="600">caps throughput</text>
+
+  <!-- seeds -->
+  <rect x="52" y="112" width="200" height="40" rx="20" fill="#1e293b" stroke="#475569"/>
+  <text x="152" y="137" fill="#e2e8f0" font-size="13" text-anchor="middle">Seed lists + RSS feeds</text>
+  <path d="M175,152 L195,181" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#aG)"/>
+
+  <!-- nodes -->
+  <rect x="125" y="183" width="170" height="64" rx="14" fill="url(#node)" stroke="#64748b"/>
+  <text x="210" y="211" fill="#f1f5f9" font-size="15" font-weight="700" text-anchor="middle">Source manifest</text>
+  <text x="210" y="230" fill="#94a3b8" font-size="12" text-anchor="middle">every source + status</text>
+
+  <rect x="365" y="128" width="170" height="64" rx="14" fill="url(#node)" stroke="#64748b"/>
+  <text x="450" y="156" fill="#f1f5f9" font-size="15" font-weight="700" text-anchor="middle">Extraction</text>
+  <text x="450" y="175" fill="#94a3b8" font-size="12" text-anchor="middle">source → decision records</text>
+
+  <rect x="605" y="124" width="190" height="72" rx="14" fill="url(#gate)" stroke="#60a5fa" stroke-width="2" filter="url(#glow)"/>
+  <text x="700" y="148" fill="#bfdbfe" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle">GATE</text>
+  <text x="700" y="167" fill="#eff6ff" font-size="14" font-weight="700" text-anchor="middle">Extraction evals</text>
+  <text x="700" y="184" fill="#bfdbfe" font-size="12" text-anchor="middle">+ human review</text>
+
+  <path d="M900,180 a60,13 0 0,1 120,0 v58 a60,13 0 0,1 -120,0 z" fill="#1f2937" stroke="#a78bfa" stroke-width="1.5"/>
+  <ellipse cx="960" cy="180" rx="60" ry="13" fill="#2e2a4f" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="960" y="218" fill="#f5f3ff" font-size="15" font-weight="700" text-anchor="middle">Dataset</text>
+  <text x="960" y="236" fill="#c4b5fd" font-size="11" text-anchor="middle">verified decisions</text>
+
+  <rect x="995" y="363" width="170" height="64" rx="14" fill="url(#node)" stroke="#64748b"/>
+  <text x="1080" y="391" fill="#f1f5f9" font-size="15" font-weight="700" text-anchor="middle">Retrieval + matching</text>
+  <text x="1080" y="410" fill="#94a3b8" font-size="12" text-anchor="middle">by problem shape</text>
+
+  <rect x="835" y="539" width="190" height="72" rx="14" fill="url(#gate)" stroke="#60a5fa" stroke-width="2" filter="url(#glow)"/>
+  <text x="930" y="563" fill="#bfdbfe" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle">GATE</text>
+  <text x="930" y="582" fill="#eff6ff" font-size="14" font-weight="700" text-anchor="middle">Evidence, not decisions</text>
+  <text x="930" y="599" fill="#bfdbfe" font-size="12" text-anchor="middle">verifier + rule checks</text>
+
+  <rect x="565" y="578" width="170" height="64" rx="14" fill="url(#node)" stroke="#a78bfa" filter="url(#glow)"/>
+  <text x="650" y="606" fill="#f5f3ff" font-size="15" font-weight="700" text-anchor="middle">PM sessions</text>
+  <text x="650" y="625" fill="#c4b5fd" font-size="12" text-anchor="middle">look up · spar · check</text>
+
+  <rect x="295" y="543" width="170" height="64" rx="14" fill="url(#node)" stroke="#64748b"/>
+  <text x="380" y="571" fill="#f1f5f9" font-size="15" font-weight="700" text-anchor="middle">Gaps found</text>
+  <text x="380" y="590" fill="#94a3b8" font-size="12" text-anchor="middle">thin or missing precedent</text>
+
+  <rect x="492" y="272" width="170" height="58" rx="14" fill="#2a2110" stroke="#fbbf24"/>
+  <text x="577" y="297" fill="#fef3c7" font-size="14" font-weight="700" text-anchor="middle">Schema + prompt fixes</text>
+  <text x="577" y="315" fill="#fcd34d" font-size="12" text-anchor="middle">never into the data</text>
+
+  <rect x="735" y="306" width="150" height="56" rx="14" fill="#0f2a2a" stroke="#2dd4bf" stroke-dasharray="5 4"/>
+  <text x="810" y="330" fill="#ccfbf1" font-size="14" font-weight="700" text-anchor="middle">Review load</text>
+  <text x="810" y="348" fill="#5eead4" font-size="12" text-anchor="middle">human time is finite</text>
+
+  <!-- loop badges -->
+  <g>
+    <circle cx="560" cy="222" r="17" fill="#fbbf24"/><text x="560" y="227" fill="#1c1404" font-size="13" font-weight="800" text-anchor="middle">B1</text>
+  </g>
+  <g>
+    <circle cx="838" cy="238" r="17" fill="#2dd4bf"/><text x="838" y="243" fill="#042f2e" font-size="13" font-weight="800" text-anchor="middle">B2</text>
+  </g>
+
+  <!-- R1 centre label -->
+  <g>
+    <circle cx="420" cy="415" r="30" fill="none" stroke="url(#ring)" stroke-width="3" stroke-dasharray="150 40"/>
+    <text x="420" y="421" fill="#f5f3ff" font-size="16" font-weight="800" text-anchor="middle">R1</text>
+    <text x="465" y="408" fill="#f5f3ff" font-size="17" font-weight="700">Coverage</text>
+    <text x="465" y="430" fill="#c4b5fd" font-size="13">reinforcing · sessions expose gaps,</text>
+    <text x="465" y="448" fill="#c4b5fd" font-size="13">gaps drive sourcing, the next session improves</text>
+  </g>
+
+  <!-- legend cards -->
+  <g font-size="13">
+    <rect x="48" y="660" width="380" height="50" rx="12" fill="#1a1636" stroke="#8b5cf6" stroke-opacity="0.5"/>
+    <text x="64" y="681" fill="#ddd6fe" font-weight="700">R1 Coverage · reinforcing</text>
+    <text x="64" y="699" fill="#a5b4fc">Grows the corpus where PMs actually need it</text>
+    <rect x="450" y="660" width="380" height="50" rx="12" fill="#221a0b" stroke="#fbbf24" stroke-opacity="0.5"/>
+    <text x="466" y="681" fill="#fde68a" font-weight="700">B1 Quality · balancing</text>
+    <text x="466" y="699" fill="#fcd34d">Failures fix the pipeline, not pollute the data</text>
+    <rect x="852" y="660" width="380" height="50" rx="12" fill="#0b2423" stroke="#2dd4bf" stroke-opacity="0.5"/>
+    <text x="868" y="681" fill="#99f6e4" font-weight="700">B2 Capacity · balancing</text>
+    <text x="868" y="699" fill="#5eead4">Review time caps growth; low confidence goes first</text>
+  </g>
+</svg>
