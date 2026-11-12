@@ -58,31 +58,7 @@ The first three happen in one conversation (`priors think`); the fourth is a foc
 
 priors uses plain, predictable code wherever it can, and an LLM only where the task needs judgment. Each step below is marked as one or the other.
 
-```mermaid
-flowchart TD
-    input([PM's situation, question or PRD]):::io
-    intake["Understand the situation<br/>→ problem shape, category, constraints"]:::llm
-    corpus[("Corpus<br/>structured, verified<br/>decision records")]:::data
-    filter["Filter candidate records<br/>by structured fields"]:::rule
-    select["Judge comparability<br/>and pick precedents"]:::llm
-    spar["Spar, synthesize or audit<br/>(the conversation)"]:::llm
-    verify["Verifier, fresh context<br/>supported? comparable? contested?"]:::llm
-    gate["Gate and checks<br/>drop rejected claims · every claim cites a real record<br/>no 'you should' · label confirmed / needs check"]:::rule
-    log["Session log<br/>precedents shown, verdicts"]:::rule
-    output([Cited answer, pushback or audit findings]):::io
-
-    input --> intake --> filter
-    corpus --> filter
-    filter --> select --> spar --> verify --> gate --> output
-    gate --> log
-
-    classDef rule fill:#e8f0fe,stroke:#1a56db,color:#0b2a6b
-    classDef llm fill:#f3e8ff,stroke:#7e22ce,color:#3b0764
-    classDef data fill:#f3f4f6,stroke:#6b7280,color:#111827
-    classDef io fill:#ffffff,stroke:#9ca3af,color:#111827
-```
-
-**Blue = rules** (deterministic code) · **Purple = LLM** (judgment) · Grey = data
+<p align="center"><img src="docs/assets/architecture.svg" alt="How priors thinks: LLM steps (understand, compare, spar, verify) in a purple lane and rule steps (filter, gate, session log) in a blue lane; every request bounces between them and passes the rules gate before reaching the user." width="100%"></p>
 
 | Step | Type | Why this type |
 | --- | --- | --- |
