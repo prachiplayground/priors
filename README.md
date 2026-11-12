@@ -54,6 +54,49 @@ The first three happen in one conversation (`priors think`); the fourth is a foc
 
 **Every claim is verified before you see it.** A separate verifier agent, with fresh context, checks each precedent claim: does the source actually say this, is the situation genuinely comparable, and is there counter-evidence? Claims are marked *confirmed* or *needs check*; anything rejected is never shown. See [docs/poc-design.md](docs/poc-design.md).
 
+## Architecture: rules vs. LLM
+
+priors uses plain, predictable code wherever it can, and an LLM only where the task needs judgment. Each step below is marked as one or the other.
+
+```mermaid
+flowchart TD
+    input([PM's situation, question or PRD]):::io
+    intake["Understand the situation<br/>→ problem shape, category, constraints"]:::llm
+    corpus[("Corpus<br/>structured, verified<br/>decision records")]:::data
+    filter["Filter candidate records<br/>by structured fields"]:::rule
+    select["Judge comparability<br/>and pick precedents"]:::llm
+    spar["Spar, synthesize or audit<br/>(the conversation)"]:::llm
+    verify["Verifier, fresh context<br/>supported? comparable? contested?"]:::llm
+    gate["Gate and checks<br/>drop rejected claims · every claim cites a real record<br/>no 'you should' · label confirmed / needs check"]:::rule
+    log["Session log<br/>precedents shown, verdicts"]:::rule
+    output([Cited answer, pushback or audit findings]):::io
+
+    input --> intake --> filter
+    corpus --> filter
+    filter --> select --> spar --> verify --> gate --> output
+    gate --> log
+
+    classDef rule fill:#e8f0fe,stroke:#1a56db,color:#0b2a6b
+    classDef llm fill:#f3e8ff,stroke:#7e22ce,color:#3b0764
+    classDef data fill:#f3f4f6,stroke:#6b7280,color:#111827
+    classDef io fill:#ffffff,stroke:#9ca3af,color:#111827
+```
+
+**Blue = rules** (deterministic code) · **Purple = LLM** (judgment) · Grey = data
+
+| Step | Type | Why this type |
+| --- | --- | --- |
+| Understand the situation | LLM | PMs describe their problem in messy, free-form language ("early-stage app for local tutors, thin supply, leadership wants growth"). Turning that into a problem shape (two-sided, supply-constrained, local) needs language understanding. |
+| Filter candidate records | Rules | Once the shape is known, narrowing records by structured fields is a plain query. It's cheaper, faster and fully predictable. |
+| Judge comparability | LLM | No record will match a new problem exactly. Deciding that a food-delivery cold-start problem is *relevant* to a tutoring marketplace, and how it differs, is reasoning by analogy. |
+| Spar, synthesize or audit | LLM | Combining several decisions into one picture, pushing back on *this* PM's plan, and reading a free-form PRD for gaps can't be scripted. |
+| Verifier | LLM | Checking whether a claim is truly supported, comparable and uncontested means reading the record and the claim with judgment. It runs as a *separate* agent with fresh context, so it doesn't inherit the first agent's assumptions. |
+| Gate and checks | Rules | The final safeguards are deterministic: rejected claims are removed, every claim must cite a record that actually exists, prescriptive phrasing is flagged, and labels are applied. Rules here can't be talked out of. |
+| Session log | Rules | Recording what was shown and the verdicts is bookkeeping, and it supplies the study's system-quality measures. |
+| Corpus | Data | Hand-structured and checked against sources before it's ever used (see [The dataset](#the-dataset)). |
+
+**Why use an LLM at all?** If PMs only needed to filter decisions ("show me pricing decisions in two-sided marketplaces"), a searchable list would be enough, and priors would be a website. The LLM earns its place in four jobs rules can't do: understanding a messy description, reasoning by analogy, synthesizing across decisions, and sparring with a specific plan. The study tests this directly: if PMs get as much value from a plain filterable list as from the conversation, the LLM isn't justified.
+
 ## The dataset
 
 Product case studies from engineering blogs, papers, talks and podcasts, structured into two linked record types:

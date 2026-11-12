@@ -56,7 +56,8 @@ During the priors task, observe without helping. Note:
 4. What did you look for that wasn't there?
 6. Usefulness, 1–5. Trust in the evidence, 1–5.
 7. If this existed tomorrow, when would you actually reach for it? While thinking something through, preparing for a review, writing a document, or never?
-8. Would you want to keep using it after today? (If yes, note it: unprompted pull is a key signal.)
+8. *(Show the same decision records as a plain, filterable list, with no AI.)* If you only had this list instead of the conversation, what would you lose, if anything? Which would you rather use?
+9. Would you want to keep using it after today? (If yes, note it: unprompted pull is a key signal.)
 
 ## After the session
 

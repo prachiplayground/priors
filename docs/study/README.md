@@ -16,6 +16,7 @@
 - **H2 (breadth):** With priors, PMs identify more alternatives and risks.
 - **H3 (time):** within the same 20 minutes, PMs reach a framing they're more confident in with priors than with their usual approach.
 - **H4 (trust):** PMs trust cited precedent more than uncited AI answers, and say so unprompted.
+- **H6 (LLM value):** PMs find the conversation more useful than a plain, filterable list of the same decision records. If not, the LLM isn't earning its place (see [Architecture: rules vs. LLM](../../README.md#architecture-rules-vs-llm)).
 - **H5 (mode):** PMs reach for priors mostly while thinking (looking things up and sparring), not only when writing documents. This tests [decision 0013](../decisions/0013-sparring-partner-not-prd-collaborator.md).
 
 Any of these can fail. Failed hypotheses are reported as findings.
@@ -68,6 +69,7 @@ One known limitation: when priors comes first, ideas from it can carry over into
 | Research cost today | Self-reported hours spent on precedent research for their last PRD |
 | Mode of use | Which modes the PM uses unprompted (look up, spar, persuade, check), coded from the recording, plus their answer to "when would you reach for this?" |
 | Verifier | Confirmed / needs check / rejected counts per session; time and cost per session |
+| Conversation vs. plain list | In the debrief, the PM sees the same decision records as a plain filterable list (no LLM) and says which they'd rather use, and why |
 | System quality | Every citation in the session checked: was it accurate, and was it relevant? |
 
 ### Blind rating of framings
